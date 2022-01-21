@@ -15,16 +15,23 @@ const images = [one, two, three, four, five, six, seven];
 function App() {
   const [currentImage, setCurrentImage] = useState(0);
 
+  const handleClick = () => {
+    setCurrentImage((currentImage) => {
+      return currentImage < (images.length - 1) ? currentImage + 1 : 0;
+    });
+  }
+
   return (
-    <div className="App">
-      <div className='title'>
+    <section>
+      <header>
         <h1>Jolly</h1>
         <h2>A photography project <br /> by Maz & Chasseur</h2>
-      </div>
-      <div className="image-container">
-        <img src={images[0]} alt="Chasseur" />
-      </div>
-    </div>
+      </header>
+      <figure>
+        <figcaption>{currentImage + 1} / {images.length}</figcaption>
+        <img src={images[currentImage]} alt="Chasseur" onClick={handleClick} />
+      </figure>
+    </section>
   );
 }
 

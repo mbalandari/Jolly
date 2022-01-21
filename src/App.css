@@ -9,7 +9,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.App {
+section {
     display: flex;
     height: 100vh;
     justify-content: space-between;
@@ -31,9 +31,29 @@ h2 {
     line-height: 1.2;
 }
 
-.image-container {
+figcaption {
+    font-size: 3rem;
+    font-weight: normal;
+    position: fixed;
+    text-align: center;
+    z-index: 1;
+    bottom: 0;
+    color: #fff;
+    margin: 0 auto;
+    width: 50%;
+    padding: 1.3rem 0;
+}
+
+figure {
     background-color: #fff;
     margin: 0;
     position: relative;
     width: 50vw;
+}
+
+img {
+    height: 100vh;
+    width: 50%;
+    object-fit: cover;
+    position: fixed;
 }
