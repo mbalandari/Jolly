@@ -11,22 +11,27 @@ import seven from './img/7.jpg';
 
 const images = [one, two, three, four, five, six, seven];
 
-const Loading = () => (
+const Loading = ({ calculatedWidth }) => (
   <aside>
     <div className="loading-bar">
       <label htmlFor='images-loaded'>Loading images...</label>
-      <progress id='images-loaded' max="100" value="50"></progress>
+      <progress id='images-loaded' max="100" value={calculatedWidth}></progress>
     </div>
   </aside>
 )
 
 function App() {
   const [currentImage, setCurrentImage] = useState(0);
+  const [numLoaded, setNumLoaded] = useState(0);
 
   const handleClick = () => {
     setCurrentImage((currentImage) => {
       return currentImage < (images.length - 1) ? currentImage + 1 : 0;
     });
+  }
+
+  const handleImageLoad = () => {
+    setNumLoaded((numLoaded) => numLoaded + 1)
   }
 
   return (
@@ -36,9 +41,11 @@ function App() {
         <h2>A photography project <br /> by Maz & Chasseur</h2>
       </header>
       <figure>
-        <Loading />
+        {numLoaded < images.length && <Loading calculatedWidth={(numLoaded / images.length) * 100} />}
         <figcaption>{currentImage + 1} / {images.length}</figcaption>
-        <img src={images[currentImage]} alt="Chasseur" onClick={handleClick} />
+        {images.map((imageURL, index) => (
+          <img key={imageURL} src={imageURL} alt="Chasseur" onClick={handleClick} onLoad={handleImageLoad} className={currentImage === index ? "display" : "hide"} />
+        ))}
       </figure>
     </section>
   );

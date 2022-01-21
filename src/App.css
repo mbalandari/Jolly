@@ -53,9 +53,18 @@ figure {
 
 img {
     height: 100vh;
-    width: 50%;
+    width: 100%;
     object-fit: cover;
-    position: fixed;
+    position: absolute;
+    opacity: 0;
+}
+
+.display {
+    opacity: 1;
+}
+
+.hide {
+    opacity: 0;
 }
 
 aside {
@@ -86,4 +95,10 @@ progress[value]::-webkit-progress-bar {
 
 progress[value]::-webkit-progress-value {
     background: #294910;
+}
+
+@media (max-width: 800px) {
+    section {
+        flex-direction: column;
+    }
 }
