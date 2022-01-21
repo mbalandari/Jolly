@@ -101,4 +101,22 @@ progress[value]::-webkit-progress-value {
     section {
         flex-direction: column;
     }
+
+    figure {
+        flex-grow: 1;
+        width: 100vw;
+    }
+
+    figcaption {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        position: relative;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
 }
