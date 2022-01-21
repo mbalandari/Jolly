@@ -9,8 +9,16 @@ import six from './img/6.jpg';
 import seven from './img/7.jpg';
 
 
-
 const images = [one, two, three, four, five, six, seven];
+
+const Loading = () => (
+  <aside>
+    <div className="loading-bar">
+      <label htmlFor='images-loaded'>Loading images...</label>
+      <progress id='images-loaded' max="100" value="50"></progress>
+    </div>
+  </aside>
+)
 
 function App() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -28,6 +36,7 @@ function App() {
         <h2>A photography project <br /> by Maz & Chasseur</h2>
       </header>
       <figure>
+        <Loading />
         <figcaption>{currentImage + 1} / {images.length}</figcaption>
         <img src={images[currentImage]} alt="Chasseur" onClick={handleClick} />
       </figure>
