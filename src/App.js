@@ -5,7 +5,7 @@ function App() {
     <div className="App">
       <div className='title'>
         <h1>Jolly</h1>
-        <p>A photography project <br /> by Maz</p>
+        <h2>A photography project <br /> by Maz & Chasseur</h2>
       </div>
       <div className="image-container">
         <img src="" alt="" />
